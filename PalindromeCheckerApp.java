@@ -9,15 +9,13 @@ public class PalindromeCheckerApp {
         System.out.print("Enter a string: ");
         String input = scanner.nextLine();
 
-        String reversed = "";
+        // Remove spaces and convert to lowercase
+        String cleaned = input.replaceAll("\\s+", "").toLowerCase();
 
-        // Reverse the string
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed += input.charAt(i);
-        }
+        // Reverse using StringBuilder (better approach)
+        String reversed = new StringBuilder(cleaned).reverse().toString();
 
-        // Compare
-        if (input.equals(reversed)) {
+        if (cleaned.equals(reversed)) {
             System.out.println("It is a palindrome.");
         } else {
             System.out.println("It is not a palindrome.");
